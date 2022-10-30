@@ -12,7 +12,7 @@
     "serve:prod": "webpack serve --config ./build/webpack.prod.config.js",
     "build:dev": "webpack --config ./build/webpack.dev.config.js",
     "build": "webpack --config ./build/webpack.prod.config.js",
-    "style": "stylelint \"src/**/*.{vue|css|less|scss}\" --fix",
+    "style": "stylelint \"src/**/*.(vue|css|less|scss)\" --fix",
     "lint": "eslint src/**/*.{js,jsx,vue} --fix"
   },
   "keywords": [],
@@ -20,6 +20,8 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.19.1",
+    "@babel/eslint-parser": "^7.19.1",
+    "@babel/eslint-plugin": "^7.19.1",
     "@babel/plugin-proposal-decorators": "^7.19.3",
     "@babel/preset-env": "^7.19.1",
     "@babel/preset-react": "^7.18.6",
@@ -40,8 +42,10 @@
     "loader-utils": "^3.2.0",
     "marked": "^4.1.0",
     "mini-css-extract-plugin": "^2.6.1",
+    "node-sass": "^7.0.3",
     "optimize-css-assets-webpack-plugin": "^6.0.1",
     "postcss-loader": "^7.0.1",
+    "sass-loader": "^13.1.0",
     "style-loader": "^3.3.1",
     "stylelint": "^14.12.1",
     "stylelint-config-standard": "^28.0.0",

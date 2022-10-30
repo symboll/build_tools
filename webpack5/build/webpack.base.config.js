@@ -75,7 +75,11 @@ module.exports = {
       {
         test: /\.s[c|a]ss$/i,
         use: [
-          'vue-style-loader', 'css-loader', 'postcss-loader', 'sass-loader'
+          // 'vue-style-loader', 
+          MiniCssExtractPlugin.loader,
+          'css-loader', 
+          'postcss-loader', 
+          'sass-loader'
         ]
       },
       {
@@ -89,20 +93,19 @@ module.exports = {
               [
                 '@babel/preset-env',
                 {
-                  useBuiltIns: 'usage',
-                  corejs: 3,
-                  // 
-                  targets: {
-                    chrome: '58',
-                    ie: 9
-                  }
+                  useBuiltIns: 'usage',  // 按需加载
+                  corejs: 3,             // 最新版本
+                  // targets: {
+                  //   chrome: '58',
+                  //   ie: 9
+                  // },                 // 配置 运行环境
+                  targets: "defaults",
+                  modules: "commonjs"
                 }
               ],
-              "@babel/preset-react"
             ],
             plugins: [
-              ["@babel/plugin-proposal-decorators", { "legacy": true }],
-              // "@babel/plugin-proposal-class-properties"
+              ["@babel/plugin-proposal-decorators", { "legacy": true }]
             ]
           }
         }
@@ -150,15 +153,16 @@ module.exports = {
       __VUE_PROD_DEVTOOLS__: true
     }),
     new MiniCssExtractPlugin({
-      filename: 'style/[name].[contentHash:8].css'
-    }),
-
-    new EslintWebpackPlugin({
-      fix: true
+      filename: 'style/[name].[contenthash:8].css'
     }),
     new StylelintWebpackPlugin({
       files: ['src/**/*{css,less,scss,sass,vue}']
     }),
+    
+    // new EslintWebpackPlugin({
+    //   fix: true
+    // }),
+
     // new CopyWebpackPlugin({
     //   patterns: [
     //     {
@@ -167,6 +171,7 @@ module.exports = {
     //     }
     //   ]
     // }),
+
     new CleanWebpackPlugin()
   ]
 }

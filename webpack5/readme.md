@@ -76,6 +76,7 @@ not dead
 `配置css代码校验`
 ```js
 new StylelintWebpackPlugin({
+  // 指定要校验的文件 
   files: ['src/**/*{css,less,scss,sass,vue}']
 }),
 ```

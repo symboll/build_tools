@@ -16,6 +16,7 @@ module.exports = merge(baseConfig, {
       API_BASE_URL: JSON.stringify('prod.com')
     }),
 
+    //压缩css
     new OptimizeCssAssetsPlugin(),
 
     ...htmlPluginGenerator('production')

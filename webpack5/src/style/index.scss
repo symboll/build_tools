@@ -1,0 +1,16 @@
+$border-color: #123456;
+
+@mixin center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  @include center();
+
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  width: 200px;
+  height: 200px;
+}

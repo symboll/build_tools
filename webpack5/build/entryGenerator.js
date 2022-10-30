@@ -5,13 +5,18 @@ const entry = {
   about: './src/about.js'
 }
 
+const titleMap = {
+  index: '首页',
+  about: '关于'
+}
+
 const htmlPluginGenerator = (mode) => {
   const keys = Object.keys(entry)
   const res = []
   for (const key of keys) {
     const config = {
       template: 'src/template/index.ejs',
-      title: 'Webpack5',
+      title: titleMap[key],
       chunks: [key],
       filename: `${key}.html`,
       favicon: 'src/template/favicon.ico',
