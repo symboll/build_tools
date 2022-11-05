@@ -2,7 +2,6 @@ const { resolve } = require('path')
 const webpack = require('webpack')
 const TerserPlugin = require('terser-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const { VueLoaderPlugin } = require('vue-loader')
 
@@ -39,15 +38,15 @@ module.exports = {
   },
   module: {
     rules: [
-      // {
-      //   test: /\.md$/i,
-      //   use: {
-      //     loader: '',
-      //     options: {
-      //       size: 20,
-      //     }
-      //   }
-      // },
+      {
+        test: /\.md$/i,
+        use: {
+          loader: './cutsom/loader',
+          options: {
+            size: 20,
+          }
+        }
+      },
       {
         test: /\.css$/i,
         use: [
@@ -129,7 +128,7 @@ module.exports = {
         },
         // 指定打包位置
         generator: {
-          filename: "image/[name].[ext]"
+          filename: "image/[name][ext]"
         }
       },
       {
@@ -141,7 +140,7 @@ module.exports = {
           }
         },
         generator: {
-          filename: 'fonts/[name].[ext]'
+          filename: 'fonts/[name][ext]'
         }
       }
     ]
@@ -163,6 +162,7 @@ module.exports = {
     //   fix: true
     // }),
 
+    // 直接将src下不需要处理的文件，复制到输出目录下
     // new CopyWebpackPlugin({
     //   patterns: [
     //     {
@@ -171,7 +171,5 @@ module.exports = {
     //     }
     //   ]
     // }),
-
-    new CleanWebpackPlugin()
   ]
 }

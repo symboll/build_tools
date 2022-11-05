@@ -56,3 +56,31 @@ person.getAge()
 console.log('count: ',person.count)
 
 
+//  图片处理
+import duck from './assets/image/duck.gif'
+const image = new Image()
+image.src = duck
+image.style.width='200px'
+image.style.height= '200px'
+document.body.appendChild(image)
+
+
+// 小于8kb 打成 base64
+import user from './assets/image/user-icon.svg'
+const image2 = new Image()
+image2.src = user
+document.body.appendChild(image2)
+
+
+// proxy 代理接口
+const request = async () => {
+  try {
+    const res = await fetch('api/users')
+    const result = await res.json()
+    console.log(result)
+  }catch (err) {
+    console.log('err', err)
+  }
+}
+
+request()
