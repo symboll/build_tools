@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../style/index.css" type="text/css">
+  <style type="text/css">
+    .title {
+      background-color: #cecece;
+    }
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  @@include('./header.html', {title: "Home"})
+
+  <h1 class="title">首页</h1>
+
+  @@include('./footer.html')
+
+
+  <script type="text/javascript">
+    console.log('home page')
+  </script>
+  <script src="../script/request.js"></script>
+  <script src="../script/index.js"></script>
+</body>
+</html>

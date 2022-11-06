@@ -1,0 +1,10 @@
+@import './_variables.scss';
+
+.wrap {
+  width: 100px;
+  height: 100px;
+  color: $primary-color;
+  &-item {
+    color: red;
+  }
+}
